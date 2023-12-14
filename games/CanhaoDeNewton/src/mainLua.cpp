@@ -169,7 +169,7 @@ void verificarTeclado() {
     posicao.x = x;
     posicao.y = y;
     Vetor velocidade;
-    velocidade.x = 0.42;
+    velocidade.x = 3.64;
     velocidade.y = 0;
     Vetor aceleracao;
     aceleracao.x = 0;
