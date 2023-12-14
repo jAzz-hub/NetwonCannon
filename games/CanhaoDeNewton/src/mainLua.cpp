@@ -58,7 +58,7 @@ void configuracoesIniciais() {
   qtdProjeteisAtuais = 0;
   qtdRastro = 0;
 
-  spritePlaneta = CriarSprite("imagens/terraNoite.png", 0);
+  spritePlaneta = CriarSprite("imagens/lua.png", 0);
   spriteProjetil = CriarSprite("imagens/projetil.png", 0);
   spriteCanhao = CriarSprite("imagens/canhao.png", 0);
   spriteTorre = CriarSprite("imagens/torre.png", 0);
@@ -68,7 +68,7 @@ void configuracoesIniciais() {
   //massa da terra 
   //double massaTerra = 5.972e24;
  
-  planeta.massa = 1000000.0;
+  planeta.massa = 1000000.0*0.0123;
 
   planeta.raio = 350.0;
   planeta.aceleracao.x = 0;
@@ -169,7 +169,7 @@ void verificarTeclado() {
     posicao.x = x;
     posicao.y = y;
     Vetor velocidade;
-    velocidade.x = 3.64;
+    velocidade.x = 0.42;
     velocidade.y = 0;
     Vetor aceleracao;
     aceleracao.x = 0;

@@ -38,6 +38,12 @@ run-canhao:
 	
 run-canhao2:
 	cd games/CanhaoDeNewton && make && ./lancamentoDeProjeteis
+	
+run-canhaoJupiter:
+	cd games/CanhaoDeNewton && make && ./mainJupiter
+
+run-canhaoLua:
+	cd games/CanhaoDeNewton && make && ./mainLua
 
 clean:
 	for PROJECT in ${PROJECTS} ; do \

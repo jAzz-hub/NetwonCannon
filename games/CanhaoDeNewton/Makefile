@@ -11,25 +11,25 @@ LDFLAGS  := -lSDL2_ttf -lSDL2_image  `pkg-config --static --libs sdl2` `gsl-conf
 
 .PHONY: build
 build:
-	$(CC) src/lancamentoDeProjeteis.cpp -g $(CXXFLAGS) $(LDFLAGS) -o lancamentoDeProjeteis
+	$(CC) src/mainLua.cpp -g $(CXXFLAGS) $(LDFLAGS) -o mainLua
 
 png-fix:
 	find imagens -type f -iname '*.png' -exec pngcrush -ow -rem allb -reduce {} \;
 
 valgrind:
-	valgrind --track-origins=yes --leak-check=yes -v --leak-check=full --show-reachable=yes ./lancamentoDeProjeteis
+	valgrind --track-origins=yes --leak-check=yes -v --leak-check=full --show-reachable=yes ./mainLua
 
 run:
-	./lancamentoDeProjeteis
+	./mainLua
 
 clean:
-	rm -rf lancamentoDeProjeteis lancamentoDeProjeteis.dSYM build release*
+	rm -rf mainLua mainLua.dSYM build release*
 
 cmake:
 	mkdir -p build && cd build && cmake .. && make -j2
 
 web:
-	emcc src/lancamentoDeProjeteis.cpp -I../../common/pig-0.5.1 -I./include `pkg-config --cflags sdl2` \
+	emcc src/mainLua.cpp -I../../common/pig-0.5.1 -I./include `pkg-config --cflags sdl2` \
 	-s WASM=1 -s USE_SDL=2 -s USE_SDL_IMAGE=2 -s SDL2_IMAGE_FORMATS='["png"]' -s USE_SDL_TTF=2 -s USE_SDL_MIXER=2 -s SDL2_MIXER_FORMATS='["ogg"]' -s USE_OGG=1 \
 	-o web.js \
 	--preload-file fontes \
@@ -43,4 +43,4 @@ format:
 SYSTEM:=$(shell uname -s)
 release:	build
 	mkdir -p release-$(SYSTEM)
-	cp -r imagens fontes lancamentoDeProjeteis release-$(SYSTEM)
+	cp -r imagens fontes mainLua release-$(SYSTEM)

@@ -53,12 +53,13 @@ void adicionarProjetil(Vetor posicao, Vetor velocidade, Vetor aceleracao,
 }
 
 void configuracoesIniciais() {
+  // CriarJanela("Canhão de Newton", 2560, 1080);
   CriarJanela("Canhão de Newton", 0);
 
   qtdProjeteisAtuais = 0;
   qtdRastro = 0;
 
-  spritePlaneta = CriarSprite("imagens/terraNoite.png", 0);
+  spritePlaneta = CriarSprite("imagens/jupiter.png", 0);
   spriteProjetil = CriarSprite("imagens/projetil.png", 0);
   spriteCanhao = CriarSprite("imagens/canhao.png", 0);
   spriteTorre = CriarSprite("imagens/torre.png", 0);
@@ -68,7 +69,7 @@ void configuracoesIniciais() {
   //massa da terra 
   //double massaTerra = 5.972e24;
  
-  planeta.massa = 1000000.0;
+  planeta.massa = 1000000.0*316;
 
   planeta.raio = 350.0;
   planeta.aceleracao.x = 0;
